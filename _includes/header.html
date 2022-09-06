@@ -33,25 +33,21 @@
             <span class="icon-bar middle-bar"></span>
             <span class="icon-bar bottom-bar"></span>
           </button>
-
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
-
-              {%- for page in site.pages -%}
-                {% if page.permalink == '/' %}
-                  {% assign about_title = page.title %}
-                {% endif %}
-              {% endfor %}
-
               <!-- About -->
-              <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/' | relative_url }}">{{ about_title }}
-                  {%- if page.permalink == '/' -%}
-                  <span class="sr-only">(current)</span>
-                  {%- endif -%}
+              <li class="nav-item {% if page.title == 'about' %}active{% endif %}">
+                <a class="nav-link" href="{{ '/' | relative_url }}">
+                  about me
+                  {% if page.title == "about" %}
+                    <span class="sr-only">(current)</span>
+                  {% endif %}
                 </a>
               </li>
-              {% if site.blog_nav_title %}
+              <li class="nav-item active">
+                <a class="nav-link" href="./assets/pdf/cv.pdf"> CV  </a>
+              </li>
+              {% if site.blog_name %}
               <!-- Blog -->
               <li class="nav-item {% if page.url contains 'blog' %}active{% endif %}">
                 <a class="nav-link" href="{{ '/blog/' | relative_url }}">{{ site.blog_nav_title }}
