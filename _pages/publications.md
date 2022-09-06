@@ -4,7 +4,7 @@ permalink: /publications/
 title: Research
 description:
 years:
-nav: true
+nav: false
 nav_order: 1
 ---
 <!-- _pages/publications.md -->
