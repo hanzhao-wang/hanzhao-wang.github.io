@@ -6,7 +6,7 @@ subtitle:  Analytics & Operations Department, Imperial College Business School
 
 profile:
   align: left
-  image: prof_pic.jpg
+  image: prof_pic.png
   image_circular: false # crops the image to make it circular
   address: <p>Email:h[.]wang19[@]imperial[.]ac[.]uk</p>
 news: false  # includes a list of news items
