@@ -5,11 +5,11 @@ permalink: /
 subtitle:  Analytics & Operations Department, Imperial College Business School
 
 profile:
-  align: right
+  align: left
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: <p>Email:h[.]wang19[@]imperial[.]ac[.]uk</p>
-news: flase  # includes a list of news items
+news: false  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: flase # includes social icons at the bottom of the page
 ---
