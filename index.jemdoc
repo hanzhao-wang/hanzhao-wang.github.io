@@ -21,8 +21,9 @@ My current research interests include:
 - Statistical Learning Theory
 - Optimization for Machine Learning
 
-== Publications 
-from new to old
+== Publications (from new to old)
+. Understanding Uncertainty Sampling \n
+/by/ *Shang Liu* and Xiaocheng Li, \[[https://arxiv.org/abs/2307.02719 arXiv]\].
 . Distribution-Free Model-Agnostic Regression Calibration via Nonparametric Methods \n
 /by/ *Shang Liu\**, Zhongze Cai\*, and Xiaocheng Li, \[[https://arxiv.org/abs/2305.12283/ arXiv]\].
 . Maximum Optimality Margin: A Unified Approach for Contextual Linear Programming and Inverse Linear Programming \n
