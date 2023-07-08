@@ -87,7 +87,7 @@ class controlstruct(object):
 
   def pushfile(self, newfile):
     self.otherfiles.insert(0, self.inf)
-    self.inf = io.open(newfile, 'rb')
+    self.inf = io.open(newfile, 'rb', encoding='utf-8')
 
   def nextfile(self):
     self.inf.close()
@@ -299,7 +299,7 @@ def parseconf(cns):
   # manually add the defaults as a file handle.
   fs = [io.BytesIO(standardconf().encode('utf-8'))]
   for sname in cns:
-    fs.append(io.open(sname, 'rb'))
+    fs.append(io.open(sname, 'rb', encoding='utf-8'))
 
   for f in fs:
     while pc(controlstruct(f)) != '':
@@ -469,7 +469,7 @@ def doincludes(f, l):
   i = 'include{'
   l = l.rstrip()
   if l.startswith(ir):
-    nf = io.open(l[len(ir):-1], 'rb')
+    nf = io.open(l[len(ir):-1], 'rb', encoding='utf-8')
     f.outf.write(nf.read().decode('utf-8'))
     nf.close()
   elif l.startswith(i):
@@ -1009,7 +1009,7 @@ def geneq(f, eq, dpi, wl, outname):
   eqdepths = {}
   if f.eqcache:
     try:
-      dc = io.open(os.path.join(f.eqdir, '.eqdepthcache'), 'rb')
+      dc = io.open(os.path.join(f.eqdir, '.eqdepthcache'), 'rb', encoding='utf-8')
       for l in dc:
         a = l.split()
         eqdepths[a[0]] = int(a[1])
@@ -1024,7 +1024,7 @@ def geneq(f, eq, dpi, wl, outname):
   tempdir = tempfile.gettempdir()
   fd, texfile = tempfile.mkstemp('.tex', '', tempdir, True)
   basefile = texfile[:-4]
-  g = os.fdopen(fd, 'wb')
+  g = os.fdopen(fd, 'wb', encoding='utf-8')
 
   preamble = '\documentclass{article}\n'
   for p in f.eqpackages:
@@ -1078,7 +1078,7 @@ def geneq(f, eq, dpi, wl, outname):
   # Update the cache if we're using it.
   if f.eqcache and eqname not in eqdepths:
     try:
-      dc = io.open(os.path.join(f.eqdir, '.eqdepthcache'), 'ab')
+      dc = io.open(os.path.join(f.eqdir, '.eqdepthcache'), 'ab', encoding='utf-8')
       dc.write(eqname + ' ' + str(depth) + '\n')
       dc.close()
     except IOError:
@@ -1628,7 +1628,7 @@ def main():
       thisout = outname
 
     infile = io.open(inname, 'rb')
-    outfile = io.open(thisout, 'w')
+    outfile = io.open(thisout, 'w', encoding='utf-8')
 
 #    print(infile.read())
     f = controlstruct(infile, outfile, conf, inname)
