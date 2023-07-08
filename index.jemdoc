@@ -14,7 +14,8 @@ Email: s.liu21@imperial.ac.uk
 I am now a Ph.D. candidate at Imperial College Business School under the advice of [https://xiaocheng-li.github.io/ Prof. Xiaocheng Li].\n
 I received my M.Res. degree from Imperial College Business School in 2022.
 Before joining Imperial College, I received my B.Sc. degree from [https://www.math.pku.edu.cn/ School of Mathematical Sciences] at Peking University in 2021.\n
-Here is my [CV.pdf CV].
+Here is my [CV.pdf CV].\n
+For those who are interested, my Chinese name is 刘(Liu)上(Shang).
 == Research
 My current research interests include:
 - Deep Learning Theory
@@ -22,6 +23,8 @@ My current research interests include:
 - Optimization for Machine Learning
 
 == Publications (from new to old)
+. When No-Rejection Learning is Optimal for Regression with Rejection \n
+/by/ /(alphabetical)/ Xiaocheng Li, *Shang Liu*, Chunlin Sun, Hanzhao Wang, \[[https://arxiv.org/abs/2307.02932/ arXiv]\].
 . Understanding Uncertainty Sampling \n
 /by/ *Shang Liu* and Xiaocheng Li, \[[https://arxiv.org/abs/2307.02719 arXiv]\].
 . Distribution-Free Model-Agnostic Regression Calibration via Nonparametric Methods \n
