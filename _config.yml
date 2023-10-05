@@ -258,7 +258,7 @@ imagemagick:
   widths:
     - 480
     - 800
-    - 1400
+    - 1600
   input_directories:
     - assets/img/
   input_formats:
