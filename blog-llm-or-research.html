@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Capacity of LLMs in Doing OR/MS Research - Hanzhao Wang</title>
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-home">Hanzhao Wang</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#" class="current">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <article class="article">
+            <header class="article-header">
+                <h1 class="article-title">The Capacity of LLMs in Doing OR/MS Research</h1>
+                <div class="article-meta">
+                    <time datetime="2025-06">June 2025</time>
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="highlight-box">
+                    <h2>TL;DR</h2>
+                    <ul>
+                        <li>In this article, we provide a summary of our findings in exploring the capability of ChatGPT-o3 (accessible with $20/month Plus plan) model by OpenAI in doing OR/MS research. <strong>Based on our exploration, all research types within the INFORMS community will be affected by the LLM tools: theory, modeling, and empirical.</strong> The tools significantly change the way people do OR/MS research or other related fields like statistics. Beyond that, a rethinking of the values of doing research and the training of Ph.D. students is also necessary.</li>
+                        <li><strong>The LLMs can help with every step of doing OR/MS research: proposing ideas, literature review, writing code, theory analysis/proof, and handling revisions.</strong> We don’t try to argue for the failure case that the current LLMs can’t do or to predict what the LLMs can do in the future. It’s easy to find cases where the current LLMs fail or hallucinate. But we should keep in mind that the models are currently improved on a monthly/quarterly basis. We, as the authors of this article, wouldn’t be surprised if a much stronger model appears in the next half or 1-2 years.</li>
+                        <li><strong>The current LLM tools can pose a challenge to the current publication system of INFORMS</strong>, in terms of submission volume, review system, judgment criteria, etc. We don’t have an estimate of how many researchers in the INFORMS community have already used these tools in doing research or writing reviews, or to what extent the current usage is. We want to take this opportunity to align the understanding of the matter across the whole community.</li>
+                    </ul>
+                </div>
+
+                <section class="section">
+                    <h2>I. The starting point of our exploration: LLMs for open theory questions</h2>
+                    
+                    <p>We explore using the ChatGPT-o3 model to solve open theory questions. Overall, its current theory ability is better than ours (as the authors of this article). It searches online to draw connections and make use of many theorems in the literature that we don’t know. Even if it makes a mistake, it’s really hard to catch, usually not an obvious one. If it makes obvious mistakes, we can point them out with follow-up prompts, and it will revise the proof.</p>
+
+                    <p>In the following, we provide a few examples on the open theory questions we studied:</p>
+
+                    <div class="example-section">
+                        <h3>log(T) regret for linear bandits:</h3>
+                        <p><a href="https://chatgpt.com/share/684324b2-4218-800f-a4e2-f28cbf3e8c43" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>The proof is correct according to our check. The contribution might be a bit limited, but it’s above the bar for some conferences/journals in terms of the depth and technical contribution. The proposed geometry-based perspective might be natural for people who have worked on linear bandits for years, but it is quite novel to us (who have some moderate exposure to bandits and linear bandits).</p>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Iteration complexity of policy iteration:</h3>
+                        <p><a href="https://chatgpt.com/share/680693af-c210-800f-9291-0ebd20c7a891" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>The proof is correct according to our check. The mixing time perspective is raised by some previous papers, but the notion and the result here seem not seen in any previous works. It constructs this new roadmap of doing the analysis based on surveying a large amount of the existing literature. As we understand, this result is above the publication bar of some journals/conferences.</p>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Certainty-equivalent pricing's almost surely inconsistency:</h3>
+                        <p><a href="https://chatgpt.com/share/6805b2df-a594-800f-bf2f-9ae16537ae10" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>Incorrect proof: This is a problem that we have spent most time on. We worked on the proof idea proposed in the above chat for almost 5 days by exhausting our ChatGPT-o3 weekly quota. Some part of the proof is incorrect, but can be resolved by tools such as Lyapunov function, but initially it makes a mistake by saying the estimated parameter of the OLS follows a martingale process, which is true if the covariates are generated i.i.d., but untrue here. So, this proof is wrong and it is unfixable. But unfortunately, if we submit a proof based on this chat to some journals, we believe we can wrap it up in a way that the reviewers can’t spot the mistake within quite a few days.</p>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Revenue-ordered policy under Mixture MNL:</h3>
+                        <p><a href="https://chatgpt.com/share/6806cb96-4978-800f-8e3d-d4104aed2734" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>Incorrect proof: It’s a very smart proof at first sight to us. But later we find the roadmap of inversion probability (which we initially find as the smartest step) turns out to be wrong. It takes us one day to identify this mistake.</p>
+                    </div>
+
+                    <p>Two additional examples which we haven’t finished checking:</p>
+
+                    <div class="example-section">
+                        <h3>Average case analysis of the simplex method's iteration complexity:</h3>
+                        <p><a href="https://chatgpt.com/share/6805dbdb-af14-800f-9243-7af9bcd5aeff" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>It involves many techniques that we need a bit more time to digest.</p>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>An open question in M/G/1 queue from stochastic system:</h3>
+                        <p><a href="https://chatgpt.com/share/68432472-2018-800f-bf26-b4d368c500ed" target="_blank" class="external-link">View ChatGPT conversation</a></p>
+                        <p>We directly upload an open question from Stochastic System on the queueing system. The analysis seems correct at first sight, but we haven’t done a thorough check.</p>
+                    </div>
+
+                    <div class="callout">
+                        <h4>Summary:</h4>
+                        <ul>
+                            <li>We tried Gemini and Claude on the tasks above, and so far, o3 is the best.</li>
+                            <li>We should view the model o3 as a super-intelligent search engine in doing the above proofs. So the model is better in probability-related problems, where there are many existing techniques and theories it can make use of. Hence, in many of the above examples, we try to prompt o3 to analyze the problem in the average-case scenario (rather than worst-case), where there is more literature that o3 can make use of. It doesn’t do constructive proofs and analyses very well at the moment. For example, some proofs require constructing a counter-example, or coming up with an entirely new way to do a proof. In this case, the o3 can’t do it that well (for the moment). But as long as similar technical ideas have appeared in the literature, it is very likely that o3 can do it.</li>
+                            <li>The picture for us to imagine how it works: We can think of the o3, after this training procedure (the current paradigm of reinforcement learning with verifiable reward), becomes something like a Brownian bridge. Conditional on the starting point of the question description, and ending point of finish – “I have completed the proof” or “I have finished this problem”. It generates the things in the middle to make the whole thing look as reasonable as possible. </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>II. The second step -- producing new ideas and writing paper reviews</h2>
+
+                    <h3>Research idea generation:</h3>
+                    
+                    <p>Two different random generations from o3 on brainstorming ideas based on the current issue of Management Science:</p>
+                    <div class="link-list">
+                        <a href="https://chatgpt.com/share/68596ebc-12c4-800f-9d59-f110a1c5fc4b" target="_blank" class="external-link">Generation 1</a>
+                        <a href="https://chatgpt.com/share/68596f32-fc10-800f-9919-f7724a470521" target="_blank" class="external-link">Generation 2</a>
+                    </div>
+
+                    <p>Two different random generations from o3 on brainstorming ideas based on the current issue of Operations Research:</p>
+                    <div class="link-list">
+                            <a href="https://chatgpt.com/share/68597121-899c-8011-9e5c-a45d7ef565a9" target="_blank" class="external-link">Generation 1</a>
+                            <a href="https://chatgpt.com/share/68597140-1ba0-8011-85c0-279d0f1e5116" target="_blank" class="external-link">Generation 2</a>
+                    </div>
+                   
+                    <p>The above is just for demonstration purposes. One may upload a few papers on one topic and ask to brainstorm new ideas along one line of work.</p>
+
+                    <p>Generally, we use o3 a lot in our own research in the past two months (we don’t recall that the model, back to earlier this year, was as powerful as it is now), and we find the ideas and thoughts that o3 comes up with are new and probably better than those proposed by ourselves in most cases. We don’t try to argue if an OR/MS researcher thinks humans come up with better ideas than LLMs; at the end of the day, it just reduces to the matter of personal taste. </p>
+
+                    <p>Things people can do after brainstorming ideas:</p>
+                    <div class="process-list">
+                        <ul>
+                            <li>Ask it to expand on one idea it proposes, say, with prompts like “can you elaborate more on the second idea?”</li>
+                            <li>Ask it to do a literature review to assess the novelty of the proposed idea, say, with prompts like “can you assess the novelty of the idea and compare it against the existing literature?”</li>
+                            <li>Ask it to position the idea for a specific journal: “Can you help me position the idea to Operations Research?” We find it will personalize the positioning and the emphasis of the paper very differently for a journal like Operations Research and a conference like NeurIPS.</li>
+                            <li>Ask it to write down the model setup, algorithms, and the code.</li>
+                            <li>One thing we also find useful is to generate a sharing link for the chat, and then use Claude (which is deemed as the best coding LLM) to write LaTeX code for the paper.</li>
+                        </ul>
+                    </div>
+
+                    <h3>Handling revisions:</h3>
+                    <p>In the following chat history, we provide an example of how to use o3 model to help with addressing paper revisions. In the prompt, we even explicitly mentioned that we don’t want to spend much time revising the paper, so the generated plan, as claimed by the LLM, can be completed in 2-3 days.</p>
+                    <p><a href="https://chatgpt.com/share/68597467-7114-800f-8c9c-0c89fb31757e" target="_blank" class="external-link">Revision Handling Example</a></p>
+                    
+                    <p>We can instruct ChatGPT to produce a revision plan for our submitted papers. We also tried the following variant:</p>
+                    <div class="process-list">
+                        <ul>
+                            <li>We ask both o3 and Claude to generate a first version of the revision plan. And then attach these two revision plans together with the original review reports and feed all of them into o3 to re-generate a final revision plan. This will potentially give a more comprehensive plan.</p></li>
+                        </ul>
+                    </div>
+
+
+                    <h3>Writing reviews:</h3>
+                    <p>Below, we provide three examples of using o3 to write reviews for our own papers. It’s easy to generate a full review from the points raised by prompting more.</p>
+                    <div class="link-list">
+                        <a href="https://chatgpt.com/share/685975bf-9328-800f-b13a-b6affd8c1845" target="_blank" class="external-link">Review Example 1</a>
+                        <a href="https://chatgpt.com/share/685976ec-92a4-800f-b530-a52eda16fc3b" target="_blank" class="external-link">Review Example 2</a>
+                        <a href="https://chatgpt.com/share/685977d4-ead8-8011-a664-8ecca575c05f" target="_blank" class="external-link">Review Example 3</a>
+                    </div>
+                    
+                    <p>Overall, we find the reviews that o3 produces are comparable to most of the current human reviewers. The relative scoring of the above three papers is consistent with our personal ranking. The key takeaways are:</p>
+                    <div class="callout">
+                        <ul>
+                            <li>As we understand, we find it hard to prevent reviewers from using LLMs to write reviews. The points raised by LLMs in these reviews are indistinguishable from those raised by human reviewers. </li>
+                            <li>The LLM-generated reviews are not objective and can be easily biased via prompt engineering. For example, the LLM-generated reviews can be manipulated by using prompts of “I am generally in favor of this paper, so please make the review more positive” or “I don't like the paper, so please make the review more negative.”</li>
+                            <li>LLMs identify over-claims in theory or modeling contributions. For results claimed to be significant or novel in some papers, it will say the result is marginally or moderately novel, and then it gives a full argument with literature support on why it says so. For papers that try to hide where they adapt some proofs from and then claim the originality of the proof, or put the paper intentionally vague or confusing so that human reviewers can’t judge the technical contributions, o3 easily identifies the source of where the ideas are inspired from.</li>
+                            <li>LLMs can be imprecise in making an acceptance or rejection decision. The LLMs are developed as general-purpose models but not fine-tuned for paper revision tasks. The final decision recommendation from LLMs may be different from human judgment. So we should see the LLMs more as a fact checker if we use them for reviewing papers, but the final recommendations are still the call of the reviewers/editors.</li>
+                        </ul>
+                    </div>
+                    <p>Multiple generation:</p>
+                    <p><strong>The LLMs are based on random generation. For all the tasks above, if it fails once, we always ask it to regenerate again. Based on the best of the k generations, one will get a very good result.</strong></p>
+                   
+                </section>
+
+                <section class="section">
+                    <h2>III. Danger of the LLM usage</h2>
+
+                    <p>We, as the authors of this article, are very much worried about how this will challenge our current publication system. The cost to produce a paper has been significantly cut with the help of these LLM tools (o3 for general research tasks, Claude for LaTeX and paper writing, and tools like Cursor for writing code). We wouldn’t be surprised if the INFORMS journals see tens of thousands of submissions in the near future.</p>
+
+                    <div class="questions-section">
+                        <h3>The questions we have here are:</h3>
+                        <ul>
+                            <li>Do we have enough reviewers and editors to handle these many papers?</li>
+                            <li>Do our papers still get their deserved attention given this overwhelming volume of new papers coming out?</li>
+                            <li>LLMs like o3 heavily rely on searching over the existing literature. If we generate a lot of seemingly correct but incorrect or misleading papers, this creates a negative cycle in producing more of them.</li>
+                            <li>We ourselves are not interested in writing 10-20 extra papers each year with the secret help of these tools, and that’s the reason for us to write this article and make the findings public. But to all the researchers, reviewers, and editors, please bear in mind that the papers you see and review may be generated with the help of LLMs in the above mentioned manner. If so, (i) what will you do with these tools for your research, and (ii) will this fact change how you evaluate a paper?</li>
+                            <li><strong>What are the values of a human researcher in this context?</strong></li>
+                        </ul>
+                    </div>
+
+                    <p>We have been closely following the LLM literature in the past two years (the core LLM research, not quite much the research on the intersection of LLM and other fields). Compared to its current capability, we are more surprised by how fast these models have evolved over the past two years. If the trend continues, the models will improve significantly every few months. We have some preliminary efforts working on AI-based solutions to identify and prevent false proof, and also building an AI-based review system more personalized to the context of OR/MS research. As the goal of this article is to call for more awareness of the matter and seek general opinions/discussions, we will refrain from expanding more about that and leave it as a future update.</p>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="acknowledgments-section">
+                        <p class="acknowledgments">
+                            Authors: Zhongze Cai, Xiaocheng Li, Shang Liu, Hanzhao Wang (alpha-beta ordered), Imperial College Business School, Imperial College London. The authors have raised the discussions within the mailing lists of Imperial College Business School operations group and the editorial board of IJDS. The authors thank Edward Anderson, Guanting Chen, Ningyuan Chen, Yu Ding, and Martin Haugh, among others, for the valuable comments and feedback. 
+                        </p>
+                    </div>
+                </footer>
+            </section>
+        </article>
+    </main>
+</body>
+</html> 
